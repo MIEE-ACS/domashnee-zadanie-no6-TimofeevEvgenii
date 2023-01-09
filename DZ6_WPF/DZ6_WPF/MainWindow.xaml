@@ -1,0 +1,42 @@
+﻿<Window x:Class="DZ6_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DZ6_WPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid RenderTransformOrigin="0.5,0.5">
+        <Grid.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform/>
+                <RotateTransform Angle="-0.216"/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </Grid.RenderTransform>
+        <Label Content="Фильтровать:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="По виду:" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="typeFilter" HorizontalAlignment="Left" Margin="73,45,0,0" VerticalAlignment="Top" Width="150" >
+            <TextBlock>Pistols</TextBlock>
+            <TextBlock>Pp</TextBlock>
+            <TextBlock>Rifle</TextBlock>
+            <TextBlock>Shotguns</TextBlock>
+        </ComboBox>
+        <Button  Click="ActiveFilter" Content="Применить фильтр" HorizontalAlignment="Right" Margin="0,48,408,0" VerticalAlignment="Top" Width="150"/>
+        <ListView x:Name="weaponlList" Margin="1,87,19,-5"  d:ItemsSource="{d:SampleData ItemCount=6}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Оружие" Width="150" DisplayMemberBinding="{Binding Type}"/>
+                    <GridViewColumn Header="Название" Width="120" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Header="Цена" Width="100" DisplayMemberBinding="{Binding Price}"/>
+                    <GridViewColumn Header="Ск.стрел" Width="100" DisplayMemberBinding="{Binding Rof}"/>
+                    <GridViewColumn Header="Обойма" Width="100" DisplayMemberBinding="{Binding Ss}"/>
+                    <GridViewColumn Header="Вес" Width="100" DisplayMemberBinding="{Binding Weight}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label Content="" HorizontalAlignment="Left" Margin="232,42,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>
+
